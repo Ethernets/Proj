@@ -1,0 +1,3 @@
+<StyleCopViolations>
+  <Violation Section="Root.Mytest.LcdDisplay" LineNumber="51" Source="C:\Users\User\Documents\Visual Studio 2015\Projects\Mytest\Mytest\Program.cs" RuleNamespace="StyleCop.CSharp.MaintainabilityRules" Rule="FileMayOnlyContainASingleClass" RuleId="SA1402">A C# document may only contain a single class at the root level unless all of the classes are partial and are of the same type.</Violation>
+</StyleCopViolations>
