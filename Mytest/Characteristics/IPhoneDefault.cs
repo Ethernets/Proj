@@ -8,6 +8,8 @@
 
     public interface IPhoneDefault
     {
+        //IDisplay Display { get; set; }
+
         void TurnOn();
 
         void TurnOff();
@@ -21,12 +23,14 @@
 
     public interface IDisplay
     {
-        void Display(bool x);
+        void DisplayOn();
+
+        void DisplayOff();
     }
 
     public interface IHardwareWork
     {
-        void Battery(int x);
+        void Battery(int level, bool status = false);
 
         void Process();
 
@@ -37,8 +41,8 @@
     {
         void OperatorLink(int level);
 
-        void WLAN(int level);
+        void WLAN(bool status, string name);
 
-        void Bluetooth(int level);
+        void Bluetooth(bool status);
     }
 }

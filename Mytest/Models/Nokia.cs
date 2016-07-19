@@ -7,15 +7,18 @@
     using System.Threading.Tasks;
     using Mytest.Characteristics;
 
-    public class Nokia : Phone
+    public class Nokia : PhoneDefault, ILink
     {
-        public string Color { get; private set; }
+        public Nokia() : base ("5800 Music", "Black")
+        {
+            Console.WriteLine("Nokia constructor");
+        }
 
-        public string Model { get; private set; }
+        public IDisplay Display { get; set; }
 
         public string Os { get; private set; }
 
-        public override void Battery(int x)
+        public override void Battery(int x, bool status = true)
         {
             if (x <= 20)
             {
@@ -65,6 +68,40 @@
         public override void Sms(string text, string number)
         {
             Console.WriteLine("Text: {0} Number: {1}", text, number);
+        }
+
+        public void OperatorLink(int level)
+        {
+            Console.WriteLine("Connect Link");
+
+            if (level < 20)
+            {
+                Console.WriteLine("Connect low Operator Link");
+            } 
+            else if (level <= 50)
+            {
+                Console.WriteLine("Connect medium Operator Link");
+            }
+            else if (level <= 100)
+            {
+                Console.WriteLine("Connect Operator Link Good");
+            }
+        }
+
+        public void WLAN(bool status = false, string name = "disconnect")
+        {
+           if (status == true)
+            {
+                Console.WriteLine("Connect: {0}", name);
+            }
+        }
+
+        public void Bluetooth(bool status = false)
+        {
+            if (status == true)
+            {
+                Console.WriteLine("Connect bluetooth");
+            }
         }
 
         public override void TurnOn()
