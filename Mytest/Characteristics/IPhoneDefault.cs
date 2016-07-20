@@ -8,8 +8,6 @@
 
     public interface IPhoneDefault
     {
-        //IDisplay Display { get; set; }
-
         void TurnOn();
 
         void TurnOff();
@@ -41,8 +39,15 @@
     {
         void OperatorLink(int level);
 
-        void WLAN(bool status, string name);
+        void Wlan(bool status, string name);
 
         void Bluetooth(bool status);
+    }
+
+    public interface IOs
+    {
+        void NameOs(string name);
+
+        void VenderOs(string name);
     }
 }

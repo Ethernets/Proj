@@ -7,16 +7,12 @@
     using System.Threading.Tasks;
     using Mytest.Characteristics;
 
-    public class Nokia : PhoneDefault, ILink
+    public class Nokia : PhoneDefaultBase, ILink
     {
-        public Nokia() : base ("5800 Music", "Black")
+        public Nokia() : base ("Nokia 5800", "Black" )
         {
             Console.WriteLine("Nokia constructor");
         }
-
-        public IDisplay Display { get; set; }
-
-        public string Os { get; private set; }
 
         public override void Battery(int x, bool status = true)
         {
@@ -88,7 +84,7 @@
             }
         }
 
-        public void WLAN(bool status = false, string name = "disconnect")
+        public void Wlan(bool status = false, string name = "disconnect")
         {
            if (status == true)
             {
@@ -104,16 +100,26 @@
             }
         }
 
-        public override void TurnOn()
+        public override void NameOs(string name)
         {
-            base.TurnOn();
+            Console.WriteLine("Name OS: {0}", name);
+        }
+
+        public override void VenderOs(string name)
+        {
+            Console.WriteLine("Venser OS: {0}", name);
+        }
+
+        public override void TurnOn()
+        {                      
             this.Process();
             this.Ram();
+            this.NameOs("Symbian");
+            this.VenderOs("Nokia");
         }
 
         public override void TurnOff()
         {
-            base.TurnOff();
             this.Process();
             this.Ram();
         }

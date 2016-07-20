@@ -6,10 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public abstract class PhoneDefault : IPhoneDefault, IHardwareWork
+    public abstract class PhoneDefaultBase : IPhoneDefault, IHardwareWork, IDisplay, IOs
     {
-        //public IDisplay Display { get; set; }
-
         public string Color { get; private set; }
 
         public string Model { get; private set; }
@@ -64,7 +62,17 @@
 
         public abstract void Ram();
 
-        public PhoneDefault(string model, string color)
+        public virtual void NameOs(string name)
+        {
+            Console.WriteLine("Name OS: {0}", name);
+        }
+
+        public virtual void VenderOs(string name)
+        {
+            Console.WriteLine("Venser OS: {0}", name);
+        }
+
+       public PhoneDefaultBase(string model, string color)
         {
             this.Model = model;
 
